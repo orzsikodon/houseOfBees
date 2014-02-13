@@ -5,7 +5,6 @@ TODO list:
 
 Biggest priority: setup all three views (map, calendar, list), with dynamic updating, so when a new post is posted the view automatically refreshes w/o any user control.
 
-* = bigger priorities
 * Make an option for the user to create a new tribe.
 * Implement the table view for a user's events.
 * Implement the calendar view for a user's events.
