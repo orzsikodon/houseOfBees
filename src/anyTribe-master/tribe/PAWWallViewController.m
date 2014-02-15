@@ -17,6 +17,7 @@
 #import "PAWPost.h"
 #import "DBCreateTribeViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <QuartzCore/QuartzCore.h>
 
 // private methods and properties
 @interface PAWWallViewController ()
@@ -29,7 +30,8 @@
 @property (nonatomic, strong) PAWWallPostsTableViewController *wallPostsTableViewController;
 @property (nonatomic, assign) BOOL mapPinsPlaced;
 @property (nonatomic, assign) BOOL mapPannedSinceLocationUpdate;
-
+@property (nonatomic, strong) NSMutableIndexSet *optionIndices;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 // posts:
 @property (nonatomic, strong) NSMutableArray *allPosts;
 
@@ -96,6 +98,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
+	
+	self.imageView.layer.borderWidth = 2;
+    self.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.imageView.layer.cornerRadius = CGRectGetHeight(self.imageView.bounds) / 2;
+    self.imageView.clipsToBounds = YES;
+	
+    RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    [self.view addGestureRecognizer:longPress];
+	
     // Do any additional setup after loading the view from its nib.
 
 	// Add the wall posts tableview as a subview with view containment (new in iOS 5.0):
@@ -614,5 +627,198 @@
 		}
 	}
 }
+
+
+- (IBAction)onBurger:(id)sender {
+	NSLog(@"pass1");
+	NSLog(@"pass5");
+    NSArray *images = @[
+                        [UIImage imageNamed:@"gear"],
+                        [UIImage imageNamed:@"globe"],
+                        [UIImage imageNamed:@"profile"],
+                        [UIImage imageNamed:@"star"],
+                        [UIImage imageNamed:@"gear"],
+                        [UIImage imageNamed:@"globe"],
+                        [UIImage imageNamed:@"profile"],
+                        [UIImage imageNamed:@"star"],
+                        [UIImage imageNamed:@"gear"],
+                        [UIImage imageNamed:@"globe"],
+                        [UIImage imageNamed:@"profile"],
+                        [UIImage imageNamed:@"star"],
+                        ];
+	NSLog(@"pass4");
+    NSArray *colors = @[
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        ];
+    NSLog(@"pass3");
+    RNFrostedSidebar *callout = [[RNFrostedSidebar alloc] initWithImages:images selectedIndices:self.optionIndices borderColors:colors];
+	NSLog(@"pass2");
+	//    RNFrostedSidebar *callout = [[RNFrostedSidebar alloc] initWithImages:images];
+    callout.delegate = self;
+	//    callout.showFromRight = YES;
+    [callout show];
+}
+
+- (void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
+    NSLog(@"Tapped item at index %i",index);
+    if (index == 3) {
+        [sidebar dismissAnimated:YES completion:nil];
+    }
+}
+
+- (void)sidebar:(RNFrostedSidebar *)sidebar didEnable:(BOOL)itemEnabled itemAtIndex:(NSUInteger)index {
+    if (itemEnabled) {
+        [self.optionIndices addIndex:index];
+    }
+    else {
+        [self.optionIndices removeIndex:index];
+    }
+}
+
+
+
+
+#pragma mark - Target/Action
+
+- (IBAction)onShowButton:(id)sender {
+    [self showGrid];
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)longPress {
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        [self showGridWithHeaderFromPoint:[longPress locationInView:self.view]];
+    }
+}
+
+#pragma mark - RNGridMenuDelegate
+
+- (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
+    NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
+}
+
+#pragma mark - Private
+
+- (void)showImagesOnly {
+    NSInteger numberOfOptions = 5;
+    NSArray *images = @[
+                        [UIImage imageNamed:@"arrow"],
+                        [UIImage imageNamed:@"attachment"],
+                        [UIImage imageNamed:@"block"],
+                        [UIImage imageNamed:@"bluetooth"],
+                        [UIImage imageNamed:@"cube"],
+                        [UIImage imageNamed:@"download"],
+                        [UIImage imageNamed:@"enter"],
+                        [UIImage imageNamed:@"file"],
+                        [UIImage imageNamed:@"github"]
+                        ];
+    RNGridMenu *av = [[RNGridMenu alloc] initWithImages:[images subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showList {
+    NSInteger numberOfOptions = 5;
+    NSArray *options = @[
+                         @"Next",
+                         @"Attach",
+                         @"Cancel",
+                         @"Bluetooth",
+                         @"Deliver",
+                         @"Download",
+                         @"Enter",
+                         @"Source Code",
+                         @"Github"
+                         ];
+    RNGridMenu *av = [[RNGridMenu alloc] initWithTitles:[options subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+	//    av.itemTextAlignment = NSTextAlignmentLeft;
+    av.itemFont = [UIFont boldSystemFontOfSize:18];
+    av.itemSize = CGSizeMake(150, 55);
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showGrid {
+    NSInteger numberOfOptions = 9;
+    NSArray *items = @[
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"arrow"] title:@"Next"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"attachment"] title:@"Attach"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"block"] title:@"Cancel"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth"] title:@"Bluetooth"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"cube"] title:@"Deliver"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"download"] title:@"Download"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"enter"] title:@"Enter"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"file"] title:@"Source Code"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"github"] title:@"Github"]
+					   ];
+	
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+	//    av.bounces = NO;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showGridWithHeaderFromPoint:(CGPoint)point {
+    NSInteger numberOfOptions = 9;
+    NSArray *items = @[
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"attachment"] title:@"Attach"],
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth"] title:@"Bluetooth"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"cube"] title:@"Deliver"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"download"] title:@"Download"],
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"file"] title:@"Source Code"],
+                       [RNGridMenuItem emptyItem]
+                       ];
+	
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    av.bounces = NO;
+    av.animationDuration = 0.2;
+    av.blurExclusionPath = [UIBezierPath bezierPathWithOvalInRect:self.imageView.frame];
+    av.backgroundPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.f, 0.f, av.itemSize.width*3, av.itemSize.height*3)];
+    
+    UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    header.text = @"Example Header";
+    header.font = [UIFont boldSystemFontOfSize:18];
+    header.backgroundColor = [UIColor clearColor];
+    header.textColor = [UIColor whiteColor];
+    header.textAlignment = NSTextAlignmentCenter;
+    // av.headerView = header;
+    
+    [av showInViewController:self center:point];
+}
+
+- (void)showGridWithPath {
+    NSInteger numberOfOptions = 9;
+    NSArray *items = @[
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"arrow"] title:@"Next"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"attachment"] title:@"Attach"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"block"] title:@"Cancel"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth"] title:@"Bluetooth"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"cube"] title:@"Deliver"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"download"] title:@"Download"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"enter"] title:@"Enter"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"file"] title:@"Source Code"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"github"] title:@"Github"]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    //    av.bounces = NO;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
 
 @end

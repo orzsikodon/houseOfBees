@@ -11,8 +11,10 @@
 #import <Parse/Parse.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "PAWPost.h"
+#import "RNFrostedSidebar.h"
+#import "RNGridMenu.h"
 
-@interface PAWWallViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate> {
+@interface PAWWallViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, RNFrostedSidebarDelegate, RNGridMenuDelegate> {
 	UISearchBar *theSearchBar;
 	GMSMapView *mapView_;
 }

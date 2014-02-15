@@ -13,7 +13,9 @@
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 @property (nonatomic, strong) IBOutlet UILabel *characterCount;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *postButton;
+@property (nonatomic, strong) IBOutlet UIButton *chooseLocationButton;
 
+- (IBAction)chooseLocationButtonPressed:(id)sender;
 - (IBAction)cancelPost:(id)sender;
 - (IBAction)postPost:(id)sender;
 

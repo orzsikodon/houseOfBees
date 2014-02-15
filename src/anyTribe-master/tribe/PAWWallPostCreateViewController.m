@@ -75,6 +75,50 @@
 
 #pragma mark UINavigationBar-based actions
 
+- (IBAction)chooseLocationButtonPressed:(id)sender {
+	
+	NSLog(@"Value of h");
+	
+	
+	[textView resignFirstResponder];
+	
+	CGRect screenRect = [[UIScreen mainScreen] bounds];
+	CGFloat screenWidth = screenRect.size.width;
+	CGFloat screenHeight = screenRect.size.height;
+	
+	UIView *mapView = [[UIView alloc] initWithFrame: CGRectMake ( 0, 0, screenWidth/1.2, screenHeight/1.2)];
+	mapView.backgroundColor = [UIColor blackColor];
+	mapView.center = CGPointMake(screenWidth/2, screenHeight/2);
+	mapView.backgroundColor = [UIColor whiteColor];
+	
+	
+	UISearchBar *search = [[UISearchBar alloc] init];
+    [search setTintColor:[UIColor colorWithRed:233.0/255.0
+                                         green:233.0/255.0
+                                          blue:233.0/255.0
+                                         alpha:1.0]];
+    search.frame = CGRectMake(0, screenHeight/2-screenHeight/1.2, screenWidth/1.2,44);
+//    search.delegate = self;
+    
+    [mapView addSubview:search];
+	
+	[self.view addSubview: mapView];
+	[self.view bringSubviewToFront: mapView];
+	
+	[UIView animateWithDuration:0.3f animations:^{
+        self.view.alpha = 0.5f;
+		mapView.alpha = 1.0f;
+    }];
+	
+//	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+//													message:@"You must be connected to the internet to use this app."
+//												   delegate:nil
+//										  cancelButtonTitle:@"OK"
+//										  otherButtonTitles:nil];
+//	[alert show];
+//	[alert release];
+}
+
 - (IBAction)cancelPost:(id)sender {
 	[self dismissModalViewControllerAnimated:YES];
 }
