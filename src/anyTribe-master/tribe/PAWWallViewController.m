@@ -100,6 +100,9 @@
     [super viewDidLoad];
 	
 	self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
+	for (int i = 0; i < 9; i++) {
+		[self.optionIndices addIndex: i];
+	}
 	
 	self.imageView.layer.borderWidth = 2;
     self.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -667,14 +670,16 @@
 	//    RNFrostedSidebar *callout = [[RNFrostedSidebar alloc] initWithImages:images];
     callout.delegate = self;
 	//    callout.showFromRight = YES;
+	callout.width = 100;
+
     [callout show];
 }
 
 - (void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     NSLog(@"Tapped item at index %i",index);
-    if (index == 3) {
-        [sidebar dismissAnimated:YES completion:nil];
-    }
+//    if (index == 3) {
+//        [sidebar dismissAnimated:YES completion:nil];
+//    }
 }
 
 - (void)sidebar:(RNFrostedSidebar *)sidebar didEnable:(BOOL)itemEnabled itemAtIndex:(NSUInteger)index {
