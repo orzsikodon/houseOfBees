@@ -157,6 +157,8 @@
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 	CGFloat screenWidth = screenRect.size.width;
 	CGFloat screenHeight = screenRect.size.height;
+	[[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"searchbar.png"]];
+	[[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"searchbar.png"]forState:UIControlStateNormal];
 	
 	UISearchBar *search = [[UISearchBar alloc] init];
     [search setTintColor:[UIColor colorWithRed:233.0/255.0
@@ -166,6 +168,8 @@
     search.frame = CGRectMake(0, screenHeight-44, 320,44);
     search.delegate = self;
     search.showsBookmarkButton = YES;
+
+
     [self.view addSubview:search];
 //	<rect key="frame" x="0.0" y="64" width="320" height="44"/>
 	
@@ -188,6 +192,8 @@
 	
 	[self startStandardUpdates];
 }
+
+
 
 - (void)oneFingerSwipeLeft:(UITapGestureRecognizer *)recognizer {
     // Insert your own code to handle swipe left
@@ -708,9 +714,23 @@
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)longPress {
-    if (longPress.state == UIGestureRecognizerStateBegan) {
-        [self showGridWithHeaderFromPoint:[longPress locationInView:self.view]];
-    }
+	
+	// Get user's current location
+	PAWAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	CLLocation *currentLocation = appDelegate.currentLocation;
+	
+	// Get location of where they pressed on the map.
+	CGPoint pressPoint = [longPress locationInView:mapView];
+    CLLocationCoordinate2D newCoor = [mapView convertPoint:pressPoint toCoordinateFromView:self.view];
+	CLLocation *newCoorLocation = [[CLLocation alloc] initWithLatitude:newCoor.latitude longitude:newCoor.longitude];
+	
+	float distanceMeters = [newCoorLocation distanceFromLocation:currentLocation];
+	
+	appDelegate.filterDistance = distanceMeters;
+	
+//    if (longPress.state == UIGestureRecognizerStateBegan) {
+//        [self showGridWithHeaderFromPoint:[longPress locationInView:self.view]];
+//    }
 }
 
 #pragma mark - RNGridMenuDelegate
