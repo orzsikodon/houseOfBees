@@ -54,7 +54,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 	
 	// Set the global tint on the navigation bar
 	[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:200.0f/255.0f green:83.0f/255.0f blue:70.0f/255.0f alpha:1.0f]];
-	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar.png"] forBarMetrics:UIBarMetricsDefault];
+//	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar.png"] forBarMetrics:UIBarMetricsDefault];
 	
 	// Desired search radius:
 	if ([userDefaults doubleForKey:defaultsFilterDistanceKey]) {
@@ -71,7 +71,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 		// Skip straight to the main view.
 		PAWWallViewController *wallViewController = [[PAWWallViewController alloc] initWithNibName:nil bundle:nil];
 		navController = [[UINavigationController alloc] initWithRootViewController:wallViewController];
-		navController.navigationBarHidden = NO;
+		navController.navigationBarHidden = YES;
 //		PAWWallPostsTableViewController *wallViewController = [[PAWWallPostsTableViewController alloc] initWithNibName:nil bundle:nil];
 //		navController = [[UINavigationController alloc] initWithRootViewController:wallViewController];
 //		navController.navigationBarHidden = NO;

@@ -21,7 +21,6 @@
 		BC900F9B189E940700ED366A /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC900F5E189E940700ED366A /* Button@2x.png */; };
 		BC900F9C189E940700ED366A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC900F5F189E940700ED366A /* InfoPlist.strings */; };
 		BC900F9D189E940700ED366A /* PAWWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC900F61189E940700ED366A /* PAWWelcomeViewController.xib */; };
-		BC900F9E189E940700ED366A /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BC900F63189E940700ED366A /* gear.png */; };
 		BC900F9F189E940700ED366A /* grayBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = BC900F64189E940700ED366A /* grayBubble.png */; };
 		BC900FA0189E940700ED366A /* grayBubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC900F65189E940700ED366A /* grayBubble@2x.png */; };
 		BC900FA1189E940700ED366A /* home_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC900F66189E940700ED366A /* home_bg@2x.png */; };
@@ -73,7 +72,7 @@
 		BCCE822E18B020E0007CA590 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE822D18B020E0007CA590 /* globe.png */; };
 		BCCE823018B020ED007CA590 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE822F18B020ED007CA590 /* star.png */; };
 		BCCE823218B020FE007CA590 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823118B020FE007CA590 /* profile.png */; };
-		BCDC1070189E7AE9003567E0 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106C189E7AE9003567E0 /* gear.png */; };
+		BCCE823418B03815007CA590 /* burger.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823318B03815007CA590 /* burger.png */; };
 		BCDC1071189E7AE9003567E0 /* tribe.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106D189E7AE9003567E0 /* tribe.png */; };
 		BCDC1072189E7AE9003567E0 /* tribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106E189E7AE9003567E0 /* tribe@2x.png */; };
 		BCDC1073189E7AE9003567E0 /* white_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106F189E7AE9003567E0 /* white_bg.png */; };
@@ -124,7 +123,6 @@
 		BC900F5E189E940700ED366A /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
 		BC900F60189E940700ED366A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC900F62189E940700ED366A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PAWWelcomeViewController.xib; sourceTree = "<group>"; };
-		BC900F63189E940700ED366A /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		BC900F64189E940700ED366A /* grayBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBubble.png; sourceTree = "<group>"; };
 		BC900F65189E940700ED366A /* grayBubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayBubble@2x.png"; sourceTree = "<group>"; };
 		BC900F66189E940700ED366A /* home_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_bg@2x.png"; sourceTree = "<group>"; };
@@ -191,7 +189,7 @@
 		BCCE822D18B020E0007CA590 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		BCCE822F18B020ED007CA590 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BCCE823118B020FE007CA590 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
-		BCDC106C189E7AE9003567E0 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		BCCE823318B03815007CA590 /* burger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burger.png; sourceTree = "<group>"; };
 		BCDC106D189E7AE9003567E0 /* tribe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tribe.png; sourceTree = "<group>"; };
 		BCDC106E189E7AE9003567E0 /* tribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tribe@2x.png"; sourceTree = "<group>"; };
 		BCDC106F189E7AE9003567E0 /* white_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bg.png; sourceTree = "<group>"; };
@@ -275,6 +273,7 @@
 				BCCE821818AEE398007CA590 /* block.png */,
 				BCCE821918AEE398007CA590 /* bluetooth.png */,
 				BCCE821A18AEE398007CA590 /* cube.png */,
+				BCCE823318B03815007CA590 /* burger.png */,
 				BCCE821B18AEE398007CA590 /* download.png */,
 				BCCE821C18AEE398007CA590 /* enter.png */,
 				BCCE821D18AEE398007CA590 /* file.png */,
@@ -339,7 +338,6 @@
 				BCDC107C189E836A003567E0 /* bubble.png */,
 				BCDC107A189E7DF0003567E0 /* post.png */,
 				BCDC1076189E7C68003567E0 /* backarrow.png */,
-				BCDC106C189E7AE9003567E0 /* gear.png */,
 				BCDC106D189E7AE9003567E0 /* tribe.png */,
 				BCDC106E189E7AE9003567E0 /* tribe@2x.png */,
 				BCDC106F189E7AE9003567E0 /* white_bg.png */,
@@ -357,7 +355,6 @@
 				BC900F70189E940700ED366A /* main.m */,
 				BC900F71189E940700ED366A /* Map.png */,
 				BC900F72189E940700ED366A /* Map@2x.png */,
-				BC900F63189E940700ED366A /* gear.png */,
 				BC900F64189E940700ED366A /* grayBubble.png */,
 				BC900F65189E940700ED366A /* grayBubble@2x.png */,
 				BC900F66189E940700ED366A /* home_bg@2x.png */,
@@ -516,7 +513,6 @@
 			files = (
 				BC900FA3189E940700ED366A /* Icon-Small-50.png in Resources */,
 				BCCE821F18AEE398007CA590 /* arrow.png in Resources */,
-				BCDC1070189E7AE9003567E0 /* gear.png in Resources */,
 				BC900FA2189E940700ED366A /* Icon-72.png in Resources */,
 				BC900F95189E940700ED366A /* Anywall@2x.png in Resources */,
 				BC900FC0189E940700ED366A /* white_bg.png in Resources */,
@@ -529,7 +525,6 @@
 				BCDC1073189E7AE9003567E0 /* white_bg.png in Resources */,
 				BC900FB4189E940700ED366A /* PAWNewUserViewController.xib in Resources */,
 				BC900F9F189E940700ED366A /* grayBubble.png in Resources */,
-				BC900F9E189E940700ED366A /* gear.png in Resources */,
 				BC900FA9189E940700ED366A /* just_background.png in Resources */,
 				BC900FA4189E940700ED366A /* Icon-Small.png in Resources */,
 				BC900F9C189E940700ED366A /* InfoPlist.strings in Resources */,
@@ -566,6 +561,7 @@
 				BCCE823218B020FE007CA590 /* profile.png in Resources */,
 				BC900F94189E940700ED366A /* Anywall.png in Resources */,
 				BC900FBF189E940700ED366A /* tribe-Info.plist in Resources */,
+				BCCE823418B03815007CA590 /* burger.png in Resources */,
 				BC900F99189E940700ED366A /* blueBubble@2x.png in Resources */,
 				BC900FA8189E940700ED366A /* iTunesArtwork in Resources */,
 				BCCE823018B020ED007CA590 /* star.png in Resources */,

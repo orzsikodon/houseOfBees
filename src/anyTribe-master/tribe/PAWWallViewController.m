@@ -99,8 +99,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	// Default the RNFrostedSidebar to have all hives selected for map view.
+	// The number 12 should eventually be replaced with call to get the number
+	// of hives a user is a part of.
 	self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 12; i++) {
 		[self.optionIndices addIndex: i];
 	}
 	
@@ -122,7 +125,7 @@
 //	[self.view addSubview:self.wallPostsTableViewController.view];
 
 	// Set our nav bar items.
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
 											  initWithImage:[UIImage imageNamed:@"bubble.png"] style:UIBarButtonItemStylePlain target:self action:@selector(postButtonSelected:)];
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
@@ -151,12 +154,16 @@
 	
 //	theSearchBar.delegate = self;
 	
+	CGRect screenRect = [[UIScreen mainScreen] bounds];
+	CGFloat screenWidth = screenRect.size.width;
+	CGFloat screenHeight = screenRect.size.height;
+	
 	UISearchBar *search = [[UISearchBar alloc] init];
     [search setTintColor:[UIColor colorWithRed:233.0/255.0
                                          green:233.0/255.0
                                           blue:233.0/255.0
                                          alpha:1.0]];
-    search.frame = CGRectMake(0, 64, 320,44);
+    search.frame = CGRectMake(0, screenHeight-44, 320,44);
     search.delegate = self;
     search.showsBookmarkButton = YES;
     [self.view addSubview:search];
