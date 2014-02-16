@@ -737,6 +737,24 @@
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
     NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
+	
+	
+	// Create a post. Go to PAWWAllPostCreateViewController.
+	if ([item.title isEqualToString:@"Shout"]) {
+		PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
+		[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
+	}
+	
+	// Log out. Go to PAWWelcomeViewController.
+	else if ([item.title isEqualToString:@"Logout"]) {
+		
+		[PFUser logOut];
+		
+		[self.presentingViewController dismissModalViewControllerAnimated:YES];
+		
+		PAWAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+		[appDelegate presentWelcomeViewController];
+	}
 }
 
 #pragma mark - Private
@@ -784,9 +802,9 @@
     NSInteger numberOfOptions = 4;
     NSArray *items = @[
 					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"arrow"] title:@"Join a Hive"],
-					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"attachment"] title:@"Create a Hive"],
-					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"block"] title:@"Cancel"],
-					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth"] title:@"Logout"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"add"] title:@"Create a Hive"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bullhorn"] title:@"Shout"],
+					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"enter"] title:@"Logout"],
 //					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"cube"] title:@"Deliver"],
 //					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"download"] title:@"Download"],
 //					   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"enter"] title:@"Enter"],

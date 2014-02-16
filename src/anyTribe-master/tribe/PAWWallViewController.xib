@@ -44,9 +44,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y3g-WZ-gzU">
-                    <rect key="frame" x="280" y="31" width="20" height="25"/>
+                    <rect key="frame" x="276" y="31" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="gear.png">
+                    <state key="normal" image="spinner.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -64,7 +64,7 @@
     <resources>
         <image name="Map.png" width="311" height="209"/>
         <image name="burger.png" width="19" height="17"/>
-        <image name="gear.png" width="320" height="460"/>
         <image name="just_background.png" width="320" height="460"/>
+        <image name="spinner.png" width="128" height="128"/>
     </resources>
 </document>

@@ -73,6 +73,10 @@
 		BCCE823018B020ED007CA590 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE822F18B020ED007CA590 /* star.png */; };
 		BCCE823218B020FE007CA590 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823118B020FE007CA590 /* profile.png */; };
 		BCCE823418B03815007CA590 /* burger.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823318B03815007CA590 /* burger.png */; };
+		BCCE823618B0BECD007CA590 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823518B0BECD007CA590 /* cog.png */; };
+		BCCE823A18B0BFB9007CA590 /* spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823918B0BFB9007CA590 /* spinner.png */; };
+		BCCE823C18B0C04D007CA590 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823B18B0C04D007CA590 /* add.png */; };
+		BCCE823E18B0C0CA007CA590 /* bullhorn.png in Resources */ = {isa = PBXBuildFile; fileRef = BCCE823D18B0C0CA007CA590 /* bullhorn.png */; };
 		BCDC1071189E7AE9003567E0 /* tribe.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106D189E7AE9003567E0 /* tribe.png */; };
 		BCDC1072189E7AE9003567E0 /* tribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106E189E7AE9003567E0 /* tribe@2x.png */; };
 		BCDC1073189E7AE9003567E0 /* white_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDC106F189E7AE9003567E0 /* white_bg.png */; };
@@ -190,6 +194,10 @@
 		BCCE822F18B020ED007CA590 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BCCE823118B020FE007CA590 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		BCCE823318B03815007CA590 /* burger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burger.png; sourceTree = "<group>"; };
+		BCCE823518B0BECD007CA590 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		BCCE823918B0BFB9007CA590 /* spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner.png; sourceTree = "<group>"; };
+		BCCE823B18B0C04D007CA590 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		BCCE823D18B0C0CA007CA590 /* bullhorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullhorn.png; sourceTree = "<group>"; };
 		BCDC106D189E7AE9003567E0 /* tribe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tribe.png; sourceTree = "<group>"; };
 		BCDC106E189E7AE9003567E0 /* tribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tribe@2x.png"; sourceTree = "<group>"; };
 		BCDC106F189E7AE9003567E0 /* white_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bg.png; sourceTree = "<group>"; };
@@ -277,6 +285,8 @@
 				BCCE821B18AEE398007CA590 /* download.png */,
 				BCCE821C18AEE398007CA590 /* enter.png */,
 				BCCE821D18AEE398007CA590 /* file.png */,
+				BCCE823B18B0C04D007CA590 /* add.png */,
+				BCCE823D18B0C0CA007CA590 /* bullhorn.png */,
 				BCCE821E18AEE398007CA590 /* github.png */,
 				BCCE822A18B01B1E007CA590 /* RNFrostedSidebar.h */,
 				BCCE822B18B01B1E007CA590 /* RNFrostedSidebar.m */,
@@ -295,6 +305,8 @@
 				BCF664DE18A45DE800144965 /* DBCalendarPostViewViewController.m */,
 				BCF664DF18A45DE800144965 /* DBCalendarPostViewViewController.xib */,
 				BC900F81189E940700ED366A /* PAWSearchRadius.h */,
+				BCCE823518B0BECD007CA590 /* cog.png */,
+				BCCE823918B0BFB9007CA590 /* spinner.png */,
 				BC900F82189E940700ED366A /* PAWSearchRadius.m */,
 				BC900F75189E940700ED366A /* PAWAppDelegate.h */,
 				BC900F76189E940700ED366A /* PAWAppDelegate.m */,
@@ -514,6 +526,7 @@
 				BC900FA3189E940700ED366A /* Icon-Small-50.png in Resources */,
 				BCCE821F18AEE398007CA590 /* arrow.png in Resources */,
 				BC900FA2189E940700ED366A /* Icon-72.png in Resources */,
+				BCCE823618B0BECD007CA590 /* cog.png in Resources */,
 				BC900F95189E940700ED366A /* Anywall@2x.png in Resources */,
 				BC900FC0189E940700ED366A /* white_bg.png in Resources */,
 				BC4896F118A5D90600C0995C /* DBCreateTribeViewController.xib in Resources */,
@@ -531,7 +544,9 @@
 				BCDC107D189E836A003567E0 /* bubble.png in Resources */,
 				BC900F55189E8B0D00ED366A /* frontarrow.png in Resources */,
 				BC900FA0189E940700ED366A /* grayBubble@2x.png in Resources */,
+				BCCE823E18B0C0CA007CA590 /* bullhorn.png in Resources */,
 				BCDC107B189E7DF0003567E0 /* post.png in Resources */,
+				BCCE823C18B0C04D007CA590 /* add.png in Resources */,
 				BCF664E118A45DE800144965 /* DBCalendarPostViewViewController.xib in Resources */,
 				BCCE822118AEE398007CA590 /* block.png in Resources */,
 				BC900F98189E940700ED366A /* blueBubble.png in Resources */,
@@ -553,6 +568,7 @@
 				BC900F97189E940700ED366A /* bar@2x.png in Resources */,
 				BCCE822718AEE398007CA590 /* github.png in Resources */,
 				BC900F9A189E940700ED366A /* Button.png in Resources */,
+				BCCE823A18B0BFB9007CA590 /* spinner.png in Resources */,
 				BC900FA1189E940700ED366A /* home_bg@2x.png in Resources */,
 				BCCE822E18B020E0007CA590 /* globe.png in Resources */,
 				BC900FAA189E940700ED366A /* just_background@2x.png in Resources */,
